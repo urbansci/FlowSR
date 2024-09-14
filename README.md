@@ -13,11 +13,11 @@ Hao Guo1†, Weiyu Zhang1†, Junjie Yang, Yuanqiao Hou, Lei Dong∗, Yu Liu∗
     ├── LICENSE                 
     ├── README.md              
     │
+    ├── Data/
+    │   
     ├── Existing_models_evaluation/  
     │
     ├── FlowSR_Julia/               
-    │   
-    ├── Data/
     │
     └── SymbolicRegression.jl/     
 

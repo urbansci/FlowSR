@@ -46,21 +46,21 @@ if build_x_y_from_raw
         end
     end
 
-    flow_dict = Pickle.load("../data/US/us_acs15_"*level*"_flow.pkl")
+    flow_dict = Pickle.load("../Data/US/us_acs15_"*level*"_flow.pkl")
     dist_arr = Float64[]
-    dist_dict = Pickle.load("../data/US/us_"*level*"_dist.pkl")
+    dist_dict = Pickle.load("../Data/US/us_"*level*"_dist.pkl")
 
     if use_iowork
         iowork_arr = Float64[]
-        iowork_dict = Pickle.load("../data/US/us_"* level *"_"* iotype *"work.pkl")
+        iowork_dict = Pickle.load("../Data/US/us_"* level *"_"* iotype *"work.pkl")
     end
     if use_iores
         iores_arr = Float64[]
-        iores_dict = Pickle.load("../data/US/us_"* level *"_"* iotype *"res.pkl")
+        iores_dict = Pickle.load("../Data/US/us_"* level *"_"* iotype *"res.pkl")
     end
 
     units = sort(collect(keys(dist_dict)))
-    attrfile = XLSX.readxlsx("../data/US/us_acs15_"* level *"_attr.xlsx")
+    attrfile = XLSX.readxlsx("../Data/US/us_acs15_"* level *"_attr.xlsx")
     attrtab = attrfile["attr"]
 
     flow = Float64[]
@@ -126,14 +126,14 @@ if build_x_y_from_raw
     println(ori_sep[1:5])
 
     if save_x_y
-        save("./data/us_"*level*"_X_dist_iorw_odrw.jld2", "X", X)
-        save("./data/us_"*level*"_Y.jld2", "y", y)
-        save("./data/us_"*level*"_sep.jld2", "sep", ori_sep)
+        save("./Data/us_"*level*"_X_dist_iorw_odrw.jld2", "X", X)
+        save("./Data/us_"*level*"_Y.jld2", "y", y)
+        save("./Data/us_"*level*"_sep.jld2", "sep", ori_sep)
     end
 else
-    X = load("./data/us_"*level*"_X_dist_iorw_odrw.jld2", "X")
-    y = load("./data/us_"*level*"_Y.jld2", "y")
-    ori_sep = load("./data/us_"*level*"_sep.jld2", "sep")
+    X = load("./Data/us_"*level*"_X_dist_iorw_odrw.jld2", "X")
+    y = load("./Data/us_"*level*"_Y.jld2", "y")
+    ori_sep = load("./Data/us_"*level*"_sep.jld2", "sep")
 end
 
 timestamp = Dates.format(Dates.now(),"yyyymmddHHMM")[3:end]

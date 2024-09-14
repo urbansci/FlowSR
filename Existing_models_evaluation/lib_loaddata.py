@@ -15,14 +15,14 @@ def load_england_data_files(level='mlad', select_feat=None, modified_io=False):
             'fb_pct': 8, 'deprived_pct': 9, 'nonwhite_pct': 10, 'bach_pct': 11, 'highsc_pct': 12}
     elif level == 'mlad':
         feat = {'respop': 4, 'workpop': 5}
-    flow_file = open(f"../data/England/England_{level}_census11_supp3.pkl", 'rb')
+    flow_file = open(f"../Data/England/England_{level}_census11_supp3.pkl", 'rb')
     flow_dict = pickle.load(flow_file)
-    dist_file = open(f"../data/England/England_{level}_dist.pkl", 'rb')
+    dist_file = open(f"../Data/England/England_{level}_dist.pkl", 'rb')
     dist_dict = pickle.load(dist_file)
 
     units = list(dist_dict.keys())
     geoid2row = dict()
-    attrdata = openpyxl.load_workbook(f"../data/England/England_{level}_census11_attr.xlsx")
+    attrdata = openpyxl.load_workbook(f"../Data/England/England_{level}_census11_attr.xlsx")
     attrtab = attrdata['attr']
     for r in range(2, attrtab.max_row + 1):
         geoid2row[int(attrtab.cell(r, 1).value[-6:])] = r
@@ -35,14 +35,14 @@ def load_england_data_files(level='mlad', select_feat=None, modified_io=False):
         attr_dict[o] = attr
 
     if modified_io and level == 'mlad':
-        iores_file = open(f"../data/England/England_{level}_miores.pkl", 'rb')
+        iores_file = open(f"../Data/England/England_{level}_miores.pkl", 'rb')
         iores_dict = pickle.load(iores_file)
-        iowork_file = open(f"../data/England/England_{level}_miowork.pkl", 'rb')
+        iowork_file = open(f"../Data/England/England_{level}_miowork.pkl", 'rb')
         iowork_dict = pickle.load(iowork_file)
     else:
-        iores_file = open(f"../data/England/England_{level}_iores.pkl", 'rb')
+        iores_file = open(f"../Data/England/England_{level}_iores.pkl", 'rb')
         iores_dict = pickle.load(iores_file)
-        iowork_file = open(f"../data/England/England_{level}_iowork.pkl", 'rb')
+        iowork_file = open(f"../Data/England/England_{level}_iowork.pkl", 'rb')
         iowork_dict = pickle.load(iowork_file)
         if modified_io and level == 'msoa':
             for o in iores_dict.keys():
@@ -58,17 +58,17 @@ def load_us_data_files(level='county', select_feat=None):
     else:
         raise NotImplementedError
 
-    flow_file = open(f"../data/US/us_acs15_{level}_flow.pkl", 'rb')
+    flow_file = open(f"../Data/US/us_acs15_{level}_flow.pkl", 'rb')
     flow_dict = pickle.load(flow_file)
-    dist_file = open(f"../data/US/us_{level}_dist.pkl", 'rb')
+    dist_file = open(f"../Data/US/us_{level}_dist.pkl", 'rb')
     dist_dict = pickle.load(dist_file)
-    iores_file = open(f"../data/US/us_{level}_iores.pkl", 'rb')
-    iowork_file = open(f"../data/US/us_{level}_iowork.pkl", 'rb')
+    iores_file = open(f"../Data/US/us_{level}_iores.pkl", 'rb')
+    iowork_file = open(f"../Data/US/us_{level}_iowork.pkl", 'rb')
     iores_dict = pickle.load(iores_file)
     iowork_dict = pickle.load(iowork_file)
     msoa_units = list(dist_dict.keys())
     geoid2row = dict()
-    attrdata = openpyxl.load_workbook(f"../data/US/us_acs15_{level}_attr.xlsx")
+    attrdata = openpyxl.load_workbook(f"../Data/US/us_acs15_{level}_attr.xlsx")
     attrtab = attrdata['attr']
     for r in range(2, attrtab.max_row + 1):
         geoid2row[int(attrtab.cell(r, 1).value)] = r
@@ -86,15 +86,15 @@ def load_jjj_data_files(level='county', select_feat=None):
         feat = {'area_km2': 8, 'pop_wan': 9, 'gdp_yi': 10}
     else:
         raise NotImplementedError
-    flow_file = open(f"../data/Jingjinji/JJJ_{level}_flow.pkl", 'rb')
+    flow_file = open(f"../Data/Jingjinji/JJJ_{level}_flow.pkl", 'rb')
     flow_dict = pickle.load(flow_file)
-    dist_file = open(f"../data/Jingjinji/JJJ_{level}_dist.pkl", 'rb')
+    dist_file = open(f"../Data/Jingjinji/JJJ_{level}_dist.pkl", 'rb')
     dist_dict = pickle.load(dist_file)
-    io_file = open(f"../data/Jingjinji/JJJ_{level}_io.pkl", 'rb')
+    io_file = open(f"../Data/Jingjinji/JJJ_{level}_io.pkl", 'rb')
     io_dict = pickle.load(io_file)
     units = list(dist_dict.keys())
     geoid2row = dict()
-    attrdata = openpyxl.load_workbook(f"../data/Jingjinji/JJJ_{level}_attr.xlsx")
+    attrdata = openpyxl.load_workbook(f"../Data/Jingjinji/JJJ_{level}_attr.xlsx")
     attrtab = attrdata['attr']
     for r in range(2, attrtab.max_row + 1):
         geoid2row[int(attrtab.cell(r, 5).value)] = r
