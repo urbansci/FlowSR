@@ -78,8 +78,8 @@ The downloaded zip can be extracted to the corresponding folder under `Data/`, a
 #### LossFunctionsModule
 
 - **eval_loss**: Generate partition if `allocation==true`.  
-- **_eval_loss**: Perform probability normalization if `allocation==true`. If `eval_probability==true`, do not multiply total outflow.  
--- **batch_sample**: Sample from `1:num_places` instead of `1:dataset.n` if `allocation==true`.
+- **_eval_loss**: Perform probability normalization if `allocation==true`. If `eval_probability==true`, do not multiply total outflow.
+- **batch_sample**: Sample from `1:num_places` instead of `1:dataset.n` if `allocation==true`.
 
 #### SymbolicRegressionModule
 - **_equation_search**: if `optimize_hof==true`, Hall-of-Fame equations will be optimized with entire dataset (even if `batching==true`) after the last `s_r_cycle`.
