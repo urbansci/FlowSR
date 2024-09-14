@@ -35,9 +35,9 @@ Pkg.activate(".")
 Pkg.instantiate()
 ```
 
-Our project is based on `SymbolicRegression.jl`, and we modified it to search for mobility flow allocation model in a friendly forked [repo](https://github.com/Flow-SR/SymbolicRegression.jl) . 
+Our project is based on `SymbolicRegression.jl`, and we modified it to search for mobility flow allocation model in a friendly forked [repo](https://github.com/urbansci/SymbolicRegression.jl) . 
 
-The modified package requires manual installation. Please clone [modified SymbolicRegression.jl](https://github.com/Flow-SR/SymbolicRegression.jl) to your local machine. Then run the following command in julia REPL to activate the environment of `FlowSR_julia` and install the modified package:
+The modified package requires manual installation. Please clone [modified SymbolicRegression.jl](https://github.com/urbansci/SymbolicRegression.jl) to your local machine. Then run the following command in julia REPL to activate the environment of `FlowSR_julia` and install the modified package:
 ```julia
 cd path/to/FlowSR_Julia
 julia
