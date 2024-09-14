@@ -1,7 +1,5 @@
 # =================================================================================================================
 # Description: This script is used to evaluate the performance of existing models. The dataset to use is specifed by `dataset` and `level` variables. The models to evaluate are specified using `model_list`. The script will output the evaluation results in an Excel file.
-# Author: Weiyu Zhang, Hao Guo 
-# Date: Autumn 2024
 # =================================================================================================================
 from sklearn.metrics import mean_squared_error, mean_absolute_error, mean_absolute_percentage_error
 from numpy import exp, round

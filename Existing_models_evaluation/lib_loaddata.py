@@ -1,7 +1,5 @@
 # =================================================================================================================
 # Description: This file contains the functions to load the data for existing models' evaluation. The functions in this file will be called in the ./bench_allocation.py, depending on the dataset used for evaluation.
-# Author: Weiyu Zhang, Hao Guo 
-# Date: Autumn 2024
 # =================================================================================================================
 import openpyxl
 import numpy as np
