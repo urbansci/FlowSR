@@ -2,7 +2,7 @@
 
 This repository contains the implementation and materials of the following paper:
 >**Distilling symbolic models from mobility data**   
-Hao Guo1†, Weiyu Zhang1†, Junjie Yang, Yuanqiao Hou, Lei Dong∗, Yu Liu∗
+Hao Guo†, Weiyu Zhang†, Junjie Yang, Yuanqiao Hou, Lei Dong∗, Yu Liu∗
 >  
 >**Abstract:** The search for models that can effectively elucidate complex phenomena remains a fundamental challenge across scientific disciplines, particularly within social sciences, where analytical frameworks derived from first principles are absent. Consequently, to quantify social behavior, researchers often rely on empirical data and statistical models with fixed variables and functional forms, limiting the discovery of more accurate and novel representations. Here, we present a symbolic regression-based study to automatically distill model expressions from large-scale human mobility behavior data. We successfully identify the robust distance decay effect in mobility, as well as various forms of the classical gravity model. Furthermore, our analysis uncovers novel extensions to well-established formulations and demonstrates that the geographic heterogeneity of mobility flows cannot be adequately represented by a universal model. The proposed framework can be broadly applied across the social sciences to uncover the hidden mathematical structure underlying complex social phenomena.
 
@@ -73,13 +73,13 @@ The downloaded zip can be extracted to the corresponding folder under `Data/`, a
 
 -  **Options** : Various attributes are added to this class, including `allocation`, `eval_probability`, `ori_sep`, `num_places`,  `optimize_hof`. 
 
-- If `allocation`==true, `ori_sep` is required as n-dim vector, where n is the number of places; dataset entry `ori_sep[i-1]+1:ori_sep[i]` corresponds to flows with origin `i`. Alternatively, you may input n*n `adjmatrix`, which is transformed into `ori_sep`. `num_places` will be calculated automatically.  
+- If `allocation==true`, `ori_sep` is required as n-dim vector, where n is the number of places; dataset entry `ori_sep[i-1]+1:ori_sep[i]` corresponds to flows with origin `i`. Alternatively, you may input n*n `adjmatrix`, which is transformed into `ori_sep`. `num_places` will be calculated automatically.  
 
 #### LossFunctionsModule
 
-- **eval_loss**: Generate partition if `allocation`==true.  
-- **_eval_loss**: Perform probability normalization if `allocation`==true. If `eval_probability`, do not multiply total outflow.  
--- **function batch_sample**: Sample from `1:num_places` instead of `1:dataset.n` if allocation.
+- **eval_loss**: Generate partition if `allocation==true`.  
+- **_eval_loss**: Perform probability normalization if `allocation==true`. If `eval_probability==true`, do not multiply total outflow.  
+-- **batch_sample**: Sample from `1:num_places` instead of `1:dataset.n` if `allocation==true`.
 
 #### SymbolicRegressionModule
-- **_equation_search**: if `optimize_hof`==true, Hall-of-Fame equations will be optimized with entire dataset (even if `batching=true`) after the last `s_r_cycle`.
+- **_equation_search**: if `optimize_hof==true`, Hall-of-Fame equations will be optimized with entire dataset (even if `batching==true`) after the last `s_r_cycle`.
