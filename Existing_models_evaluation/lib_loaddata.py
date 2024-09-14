@@ -1,5 +1,6 @@
 # =================================================================================================================
-# Description: This file contains the functions to load the data for existing models' evaluation. The functions in this file will be called in the ./bench_allocation.py, depending on the dataset used for evaluation.
+# Description: This file contains the functions to load the data for existing models' evaluation. 
+# The functions in this file will be called in the ./bench_allocation.py, depending on the dataset used for evaluation.
 # =================================================================================================================
 import openpyxl
 import numpy as np
@@ -7,7 +8,7 @@ import pandas as pd
 import pickle
 from tqdm import tqdm
 
-def load_england_data_files(level='msoa', select_feat=None, modified_io=False):
+def load_england_data_files(level='mlad', select_feat=None, modified_io=False):
     # feat: dist, o, d
     if level == 'msoa':
         feat = {'area_km2': 3, 'respop': 4, 'employedpop': 5, 'workpop': 6, 'households':7,

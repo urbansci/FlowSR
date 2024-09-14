@@ -6,6 +6,25 @@ Hao Guo1†, Weiyu Zhang1†, Junjie Yang, Yuanqiao Hou, Lei Dong∗, Yu Liu∗
 >  
 >**Abstract:** The search for models that can effectively elucidate complex phenomena remains a fundamental challenge across scientific disciplines, particularly within social sciences, where analytical frameworks derived from first principles are absent. Consequently, to quantify social behavior, researchers often rely on empirical data and statistical models with fixed variables and functional forms, limiting the discovery of more accurate and novel representations. Here, we present a symbolic regression-based study to automatically distill model expressions from large-scale human mobility behavior data. We successfully identify the robust distance decay effect in mobility, as well as various forms of the classical gravity model. Furthermore, our analysis uncovers novel extensions to well-established formulations and demonstrates that the geographic heterogeneity of mobility flows cannot be adequately represented by a universal model. The proposed framework can be broadly applied across the social sciences to uncover the hidden mathematical structure underlying complex social phenomena.
 
+## File Structure
+    FlowSR/
+    │
+    ├── .gitignore              
+    ├── LICENSE                 
+    ├── README.md              
+    │
+    ├── Existing_models_evaluation/  
+    │
+    ├── FlowSR_Julia/               
+    │   
+    ├── Data/
+    │
+    └── SymbolicRegression.jl/     
+
+- `Existing_models_evaluation`: This directory contains evaluations of existing models, implemented in Python.
+- `SymbolicRegression.jl`: This directory hosts a modified version of the SymbolicRegression.jl package, specifically tailored to search for the allocation mobility models. Please note that this package requires manual installation. Original package can be found [here](   https://github.com/MilesCranmer/SymbolicRegression.jl).
+- `FlowSR_Julia`: This directory contains our proposed framework, implemented using Julia and the modified SymbolicRegression.jl package.
+- `Data`: This folder contains the publicly available datasets (the US and England datasets) in this study.
 
 ## Instructions for running the code
 The project is implemented in Julia. Please install Julia from the [official website](https://julialang.org/downloads/).
@@ -19,7 +38,7 @@ Pkg.activate(".")
 Pkg.instantiate()
 ```
 
-Our project is based on SymbolicRegression.jl, and we modified it to optimize mobility model in the allocation way. Thus, the project need to be installed manually. After activating the project environment in last step, run the following command in julia REPL:
+Our project is based on `SymbolicRegression.jl`, and we modified it to search for allocation mobility model. The modified package requires manual installation. After activating the project environment in last step, run the following command in julia REPL:
 ```julia
 using Pkg
 Pkg.develop(path="path/to/your/project/SymbolicRegression.jl")

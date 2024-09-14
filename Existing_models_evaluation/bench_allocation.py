@@ -1,5 +1,8 @@
 # =================================================================================================================
-# Description: This script is used to evaluate the performance of existing models. The dataset to use is specifed by `dataset` and `level` variables. The models to evaluate are specified using `model_list`. The script will output the evaluation results in an Excel file.
+# Description: This script is used to evaluate the performance of existing models. 
+# The dataset to use is specifed by `dataset` and `level` variables. 
+# The models to evaluate are specified using `model_list`. 
+# The script will output the evaluation results in an Excel file.
 # =================================================================================================================
 from sklearn.metrics import mean_squared_error, mean_absolute_error, mean_absolute_percentage_error
 from numpy import exp, round
@@ -10,7 +13,7 @@ from math import sqrt
 import openpyxl
 
 dataset = 'US'  # ["england", "US", "JJJ","gd_commute","gd_mobility"]
-level = 'county'  # ["msoa", "mlad", "county", "state", "csa","subdistrict"]
+level = 'county'  # ["mlad", "county", "state", "csa","subdistrict"]
 model_list = ["GM_Zipf", "GM_Pow","GM_Exp","RM","ERM","IO","OPS"]  # ["GM_Zipf", "GM_Pow","GM_Exp","RM","ERM","IO","OPS"]
 use_work_attr = True
 
@@ -115,8 +118,6 @@ for type in model_list:
         Ypred = pred(res.x)
     else:  # parameter-free model
         Ypred = pred()
-
-    # Ypred = round(Ypred) # may be useful for scatterplot
 
     rmse = sqrt(mean_squared_error(Yarr, Ypred))
     mae = mean_absolute_error(Yarr, Ypred)
