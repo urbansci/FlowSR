@@ -21,10 +21,10 @@ Hao Guo1†, Weiyu Zhang1†, Junjie Yang, Yuanqiao Hou, Lei Dong∗, Yu Liu∗
     │
     └── SymbolicRegression.jl/     
 
+- `Data`: This folder contains the publicly available datasets (the US and England datasets) in this study.
 - `Existing_models_evaluation`: This directory contains evaluations of existing models, implemented in Python.
 - `SymbolicRegression.jl`: This directory hosts a modified version of the SymbolicRegression.jl package, specifically tailored to search for the allocation mobility models. Please note that this package requires manual installation. Original package can be found [here](   https://github.com/MilesCranmer/SymbolicRegression.jl).
 - `FlowSR_Julia`: This directory contains our proposed framework, implemented using Julia and the modified SymbolicRegression.jl package.
-- `Data`: This folder contains the publicly available datasets (the US and England datasets) in this study.
 
 ## Instructions for running the code
 The project is implemented in Julia. Please install Julia from the [official website](https://julialang.org/downloads/).
