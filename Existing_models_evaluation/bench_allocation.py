@@ -12,7 +12,7 @@ from scipy import optimize
 from math import sqrt
 import openpyxl
 
-dataset = 'US'  # ["england", "US", "JJJ","gd_commute","gd_mobility"]
+dataset = 'US'  # ["england", "US", "BTH","gd_commute","gd_mobility"]
 level = 'county'  # ["mlad", "county", "state", "csa","subdistrict"]
 model_list = ["GM_Zipf", "GM_Pow","GM_Exp","RM","ERM","IO","OPS"]  # ["GM_Zipf", "GM_Pow","GM_Exp","RM","ERM","IO","OPS"]
 use_work_attr = True
@@ -27,8 +27,8 @@ if dataset == 'england':
 elif dataset == 'US':
     flow, dist, iores, iowork, attr = load_us_data_files(level=level,
                 select_feat=['respop', 'workpop'])
-elif dataset == 'JJJ':
-    flow, dist, iores, attr = load_jjj_data_files(level=level, select_feat=['pop_wan'])
+elif dataset == 'BTH':
+    flow, dist, iores, attr = load_bth_data_files(level=level, select_feat=['pop_wan'])
 else:
     raise NotImplementedError
 print(len(dist.keys()))
