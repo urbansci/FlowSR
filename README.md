@@ -83,7 +83,7 @@ This dataset contains the location of usual residence and place of work of emplo
 
 ### US dataset
 
-This datatset contains the location of usual residence and place of work of employed residents in the Contiguous US, aggregated to the county level, as well as the residential and workplace population of each county. Both the [commuting flow data](https://www.census.gov/data/tables/2015/demo/metro-micro/commuting-flows-2015.html) and the [population data](https://data.census.gov/) are collected from the American Community Survey (2011-2015 ACS 5-year estimate). 
+This dataset contains the location of usual residence and place of work of employed residents in the Contiguous US, aggregated to the county level, as well as the residential and workplace population of each county. Both the [commuting flow data](https://www.census.gov/data/tables/2015/demo/metro-micro/commuting-flows-2015.html) and the [population data](https://data.census.gov/) are collected from the American Community Survey (2011-2015 ACS 5-year estimate). 
 
 - us_acs15_county_attr.xlsx
     - respop: residential population of each county (in 10^4 persons), collected from [Census.gov](https://data.census.gov/)
