@@ -31,17 +31,17 @@ if build_x_y_from_raw
     use_io = true  # intervening opportunity
     modified_io = false
     
-    flow_dict = Pickle.load("../data/Jingjinji/JJJ_"* level *"_flow.pkl")
+    flow_dict = Pickle.load("../Data/BTH/BTH_"* level *"_flow.pkl")
     dist_arr = Float64[]
-    dist_dict = Pickle.load("../data/Jingjinji/JJJ_"* level *"_dist.pkl")
+    dist_dict = Pickle.load("../Data/BTH/BTH_"* level *"_dist.pkl")
     
     if use_io
         io_arr = Float64[]
-        io_dict = Pickle.load("../data/Jingjinji/JJJ_"* level *"_io.pkl")
+        io_dict = Pickle.load("../Data/BTH/BTH_"* level *"_io.pkl")
     end
     
     units = sort(collect(keys(dist_dict)))
-    attrfile = XLSX.readxlsx("../data/Jingjinji/JJJ_"* level *"_attr.xlsx")
+    attrfile = XLSX.readxlsx("../Data/BTH/BTH_"* level *"_attr.xlsx")
     attrtab = attrfile["attr"]
     
     flow = Float64[]
@@ -99,15 +99,15 @@ if build_x_y_from_raw
     
     # Save the data
     if save_x_y
-        save("./data/jjj_"*level*"_X_dist_io_odp.jld2", "X", X)
-        save("./data/jjj_"*level*"_Y.jld2", "y", y)
-        save("./data/jjj_"*level*"_sep.jld2", "sep", ori_sep)
+        save("./Data/BTH/BTH_"*level*"_X_dist_io_odp.jld2", "X", X)
+        save("./Data/BTH/BTH_"*level*"_Y.jld2", "y", y)
+        save("./Data/BTH/BTH_"*level*"_sep.jld2", "sep", ori_sep)
     end
 else
     # Load Existing Data
-    X = load("./data/jjj_"*level*"_X_dist_io_odp.jld2", "X")
-    y = load("./data/jjj_"*level*"_Y.jld2", "y")
-    ori_sep = load("./data/jjj_"*level*"_sep.jld2", "sep")
+    X = load("./Data/BTH/BTH_"*level*"_X_dist_io_odp.jld2", "X")
+    y = load("./Data/BTH/BTH_"*level*"_Y.jld2", "y")
+    ori_sep = load("./Data/BTH/BTH_"*level*"_sep.jld2", "sep")
 end
 
 for rep in 1:repeat
