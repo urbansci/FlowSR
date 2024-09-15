@@ -10,14 +10,6 @@ using FileIO
 
 level= "county" # spatial scale ["county"]
 
-# Specify the features to use
-select_feat_ori = ["respop", "workpop"] # ["respop", "workpop"]
-select_feat_dest = ["respop", "workpop"]
-use_dist = true
-use_iowork = true  # intervening opportunity, calculated with workpop
-use_iores = true  # intervening opportunity, calculated with respop
-modified_io = false
-
 # Specify whether to build x and y from scratch or load existing data
 build_x_y_from_raw = false
 
@@ -25,26 +17,18 @@ build_x_y_from_raw = false
 save_x_y = false
 
 if build_x_y_from_raw
-
     using Pickle
     if level == "county"
         feat = Dict("respop"=>4, "employedpop"=>5, "workpop"=>6)
-        iotype = "io"
-    elseif level == "state"
-        feat = Dict("respop"=>4, "employedpop"=>5, "workpop"=>6)
-        if modified_io
-            iotype = "mio"
-        else
-            iotype = "io"
-        end
-    elseif level == "csa"
-        feat = Dict("respop"=>3, "employedpop"=>4, "workpop"=>5)
-        if modified_io
-            iotype = "mio"
-        else
-            iotype = "io"
-        end
     end
+
+    # Specify the features to use
+    select_feat_ori = ["respop", "workpop"] 
+    select_feat_dest = ["respop", "workpop"]
+    use_dist = true
+    use_iowork = true  # intervening opportunity, calculated with workpop
+    use_iores = true  # intervening opportunity, calculated with respop
+
 
     flow_dict = Pickle.load("../Data/US/us_acs15_"*level*"_flow.pkl")
     dist_arr = Float64[]
@@ -52,11 +36,11 @@ if build_x_y_from_raw
 
     if use_iowork
         iowork_arr = Float64[]
-        iowork_dict = Pickle.load("../Data/US/us_"* level *"_"* iotype *"work.pkl")
+        iowork_dict = Pickle.load("../Data/US/us_"* level *"_iowork.pkl")
     end
     if use_iores
         iores_arr = Float64[]
-        iores_dict = Pickle.load("../Data/US/us_"* level *"_"* iotype *"res.pkl")
+        iores_dict = Pickle.load("../Data/US/us_"* level *"_iores.pkl")
     end
 
     units = sort(collect(keys(dist_dict)))
@@ -100,16 +84,10 @@ if build_x_y_from_raw
             end
             if use_iores
                 iores = iores_dict[o][d]
-                if modified_io && iotype == "io"
-                    iores += attrtab[geoid2row[o], feat["respop"]] 
-                end
                 push!(iores_arr, iores)
             end
             if use_iowork
                 iowork = iowork_dict[o][d] 
-                if modified_io && iotype == "io"
-                    iowork += attrtab[geoid2row[o], feat["workpop"]] 
-                end
                 push!(iowork_arr, iowork)
             end
         end
@@ -118,12 +96,9 @@ if build_x_y_from_raw
         end
     end
     y = flow
-    #X = (D=dist_arr,  Wo=ofeatarr[1], Wd=dfeatarr[1])
     X = (D=dist_arr, Sr=iores_arr, Sw=iowork_arr, Ro=ofeatarr[1], Wo=ofeatarr[2], Rd=dfeatarr[1], Wd=dfeatarr[2]) # Need to change everytime making new data 
 
     ori_sep = [sum(ori_count[1:i]) for i in 1:nplaces]
-    println(ori_count[1:5])
-    println(ori_sep[1:5])
 
     if save_x_y
         save("./Data/us_"*level*"_X_dist_iorw_odrw.jld2", "X", X)
@@ -131,7 +106,8 @@ if build_x_y_from_raw
         save("./Data/us_"*level*"_sep.jld2", "sep", ori_sep)
     end
 else
-    X = load("./Data/us_"*level*"_X_dist_iorw_odrw.jld2", "X")
+    # Load existing data 
+    X = load("./Data/us_"*level*"_X_dist_iorw_odrw.jld2", "X") # change the filename to the one you want to use
     y = load("./Data/us_"*level*"_Y.jld2", "y")
     ori_sep = load("./Data/us_"*level*"_sep.jld2", "sep")
 end
