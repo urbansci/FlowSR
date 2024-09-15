@@ -81,20 +81,20 @@ def load_us_data_files(level='county', select_feat=None):
         attr_dict[o] = attr
     return flow_dict, dist_dict, iores_dict, iowork_dict, attr_dict
 
-def load_jjj_data_files(level='county', select_feat=None):
+def load_bth_data_files(level='county', select_feat=None):
     if level == 'county':
         feat = {'area_km2': 8, 'pop_wan': 9, 'gdp_yi': 10}
     else:
         raise NotImplementedError
-    flow_file = open(f"../Data/Jingjinji/JJJ_{level}_flow.pkl", 'rb')
+    flow_file = open(f"../Data/BTH/BTH_{level}_flow.pkl", 'rb')
     flow_dict = pickle.load(flow_file)
-    dist_file = open(f"../Data/Jingjinji/JJJ_{level}_dist.pkl", 'rb')
+    dist_file = open(f"../Data/BTH/BTH_{level}_dist.pkl", 'rb')
     dist_dict = pickle.load(dist_file)
-    io_file = open(f"../Data/Jingjinji/JJJ_{level}_io.pkl", 'rb')
+    io_file = open(f"../Data/BTH/BTH_{level}_io.pkl", 'rb')
     io_dict = pickle.load(io_file)
     units = list(dist_dict.keys())
     geoid2row = dict()
-    attrdata = openpyxl.load_workbook(f"../Data/Jingjinji/JJJ_{level}_attr.xlsx")
+    attrdata = openpyxl.load_workbook(f"../Data/BTH/BTH_{level}_attr.xlsx")
     attrtab = attrdata['attr']
     for r in range(2, attrtab.max_row + 1):
         geoid2row[int(attrtab.cell(r, 5).value)] = r
