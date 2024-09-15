@@ -4,7 +4,7 @@ This repository contains the implementation and materials of the following paper
 >**Distilling symbolic models from mobility data**   
 Hao Guo†, Weiyu Zhang†, Junjie Yang, Yuanqiao Hou, Lei Dong∗, Yu Liu∗
 >  
->**Abstract:** The search for models that can effectively elucidate complex phenomena remains a fundamental challenge across scientific disciplines, particularly within social sciences, where analytical frameworks derived from first principles are absent. Consequently, to quantify social behavior, researchers often rely on empirical data and statistical models with fixed variables and functional forms, limiting the discovery of more accurate and novel representations. Here, we present a symbolic regression-based study to automatically distill model expressions from large-scale human mobility behavior data. We successfully identify the robust distance decay effect in mobility, as well as various forms of the classical gravity model. Furthermore, our analysis uncovers novel extensions to well-established formulations and demonstrates that the geographic heterogeneity of mobility flows cannot be adequately represented by a universal model. The proposed framework can be broadly applied across the social sciences to uncover the hidden mathematical structure underlying complex social phenomena.
+>**Abstract:** The search for models that can effectively elucidate complex phenomena remains a fundamental challenge across scientific disciplines, particularly in the social sciences, where first-principle analytical frameworks are often lacking. Researchers in these fields frequently rely on empirical data and statistical models with fixed variables and functional forms, which limits the discovery of more accurate and novel representations. Here, we present a symbolic regression-based approach designed to automatically distill model expressions from human mobility data, a crucial aspect of social behavior. Our method successfully identifies the well-established distance decay effect in mobility and various forms of the classical gravity model. Furthermore, we uncover novel extensions to existing models and demonstrates that the geographic heterogeneity of mobility flows necessitates region-specific models rather than universal ones. This framework offers a powerful tool for revealing the underlying mathematical structures of complex social phenomena from observation data.
 
 ## File Structure
     FlowSR/
@@ -64,8 +64,15 @@ python benchmark_allocation.py
 The download links of England and US in this study are as follows:
 - [England](https://www.dropbox.com/scl/fi/xicio4dlez4fgtx9w9mcw/England.zip?rlkey=s35nev99ztzlc42pbtjcp8e2i&st=tqxbk0wn&dl=0)
 - [US](https://www.dropbox.com/scl/fi/61vvp8h9drhw4tihif3ql/US.zip?rlkey=nvu6mvbivl6i7t6jq11h23i5z&st=5daoutgr&dl=0)
+- [Beijing-Tianjin-Hebei](https://www.dropbox.com/scl/fi/z68cmg32sphio37isrf83/FlowSR-BTH.zip?rlkey=gyqsil4xky5unp23e6p5rm3kh&st=qebjng47&dl=0)
 
-The downloaded zip can be extracted to the corresponding folder under `Data/`, and codes can run without any additional modifications.
+The downloaded zip files can be extracted to the corresponding folder under `Data/`, and codes can run without any additional modifications.
+
+### England dataset
+
+### US dataset
+
+### Beijing-Tianjin-Hebei (BTH) dataset
 
 ## Modification Records of SymbolicRegression.jl 
 
