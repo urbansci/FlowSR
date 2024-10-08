@@ -1,7 +1,7 @@
 # Distilling symbolic models from mobility data
 
 This repository contains the implementation and materials of the following paper:
->**Distilling symbolic models from mobility data**   
+>**Automatically distilling gravity-like symbolic models from mobility data**   
 Hao Guo†, Weiyu Zhang†, Junjie Yang, Yuanqiao Hou, Lei Dong∗, Yu Liu∗
 >  
 >**Abstract:** The search for models that can effectively elucidate complex phenomena remains a fundamental challenge across scientific disciplines, particularly in the social sciences, where first-principle analytical frameworks are often lacking. Researchers in these fields frequently rely on empirical data and statistical models with fixed variables and functional forms, which limits the discovery of more accurate and novel representations. Here, we present a symbolic regression-based approach designed to automatically distill model expressions from human mobility data, a crucial aspect of social behavior. Our method successfully identifies the well-established distance decay effect in mobility and various forms of the classical gravity model. Furthermore, we uncover novel extensions to existing models and demonstrates that the geographic heterogeneity of mobility flows necessitates region-specific models rather than universal ones. This framework offers a powerful tool for revealing the underlying mathematical structures of complex social phenomena from observation data.
@@ -60,7 +60,7 @@ julia --project="." --threads=4 srflow_us.jl # Take the use for example
 ```
 
 
-## Baseline Evauation
+## Baseline Evaluation
 The evaluation of existing models is conducted using Python. Execute the benchmark_allocation.py script directly:
 ```
 python benchmark_allocation.py
