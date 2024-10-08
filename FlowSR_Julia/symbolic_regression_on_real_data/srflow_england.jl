@@ -30,21 +30,21 @@ if build_x_y_from_raw
     use_iowork = true  # intervening opportunity, calculated with workpop
     use_iores = true  # intervening opportunity, calculated with respop
 
-    flow_dict = Pickle.load("../Data/England/England_"* level *"_census11_supp3.pkl")
+    flow_dict = Pickle.load("../../Data/England/England_"* level *"_census11_supp3.pkl")
     dist_arr = Float64[]
-    dist_dict = Pickle.load("../Data/England/England_"* level *"_dist.pkl")
+    dist_dict = Pickle.load("../../Data/England/England_"* level *"_dist.pkl")
 
     if use_iowork
         iowork_arr = Float64[]
-        iowork_dict = Pickle.load("../Data/England/England_"* level *"_iowork.pkl")
+        iowork_dict = Pickle.load("../../Data/England/England_"* level *"_iowork.pkl")
     end
     if use_iores
         iores_arr = Float64[]
-        iores_dict = Pickle.load("../Data/England/England_"* level *"_iores.pkl")
+        iores_dict = Pickle.load("../../Data/England/England_"* level *"_iores.pkl")
     end
 
     units = sort(collect(keys(dist_dict)))
-    attrfile = XLSX.readxlsx("../Data/England/England_"* level *"_census11_attr.xlsx")
+    attrfile = XLSX.readxlsx("../../Data/England/England_"* level *"_census11_attr.xlsx")
     attrtab = attrfile["attr"]
 
     flow = Float64[]

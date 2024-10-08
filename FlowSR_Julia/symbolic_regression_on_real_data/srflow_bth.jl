@@ -31,17 +31,17 @@ if build_x_y_from_raw
     use_io = true  # intervening opportunity
     modified_io = false
     
-    flow_dict = Pickle.load("../Data/BTH/BTH_"* level *"_flow.pkl")
+    flow_dict = Pickle.load("../../Data/BTH/BTH_"* level *"_flow.pkl")
     dist_arr = Float64[]
-    dist_dict = Pickle.load("../Data/BTH/BTH_"* level *"_dist.pkl")
+    dist_dict = Pickle.load("../../Data/BTH/BTH_"* level *"_dist.pkl")
     
     if use_io
         io_arr = Float64[]
-        io_dict = Pickle.load("../Data/BTH/BTH_"* level *"_io.pkl")
+        io_dict = Pickle.load("../../Data/BTH/BTH_"* level *"_io.pkl")
     end
     
     units = sort(collect(keys(dist_dict)))
-    attrfile = XLSX.readxlsx("../Data/BTH/BTH_"* level *"_attr.xlsx")
+    attrfile = XLSX.readxlsx("../../Data/BTH/BTH_"* level *"_attr.xlsx")
     attrtab = attrfile["attr"]
     
     flow = Float64[]

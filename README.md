@@ -17,11 +17,17 @@ Hao Guo†, Weiyu Zhang†, Junjie Yang, Yuanqiao Hou, Lei Dong∗, Yu Liu∗
     │   
     ├── Existing_models_evaluation/       
     │
-    └── FlowSR_Julia/       
+    ├── FlowSR_Julia/   
+    │   ├── geographical_heterogeneity_analysis/
+    │   ├── symbolic_regression_on_real_data/
+    │   └── symbolic_regression_on_synthetic_data/    
 
 - `Data`: This folder contains the download link of publicly available datasets (the US and England datasets) in this study.
 - `Existing_models_evaluation`: This directory contains evaluations of existing models, implemented in Python.
 - `FlowSR_Julia`: This directory contains our proposed framework, implemented using Julia and the modified SymbolicRegression.jl package.
+    - `symbolic_regression_on_real_data`: This directory contains the code to replicate our main results on real datasets.
+    - `geographical_heterogeneity_analysis`: This directory contains the code for the `Geographical Heterogeneity of Mobility Models` section.
+    - `symbolic_regression_on_synthetic_data`: This directory contains the code for experiments on synthetic data in the `Discussion`.
 
 ## Instructions for running the code
 The project is implemented in Julia. Please install Julia from the [official website](https://julialang.org/downloads/).
