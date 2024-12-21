@@ -54,7 +54,7 @@ def load_england_data_files(level='mlad', select_feat=None, modified_io=False):
 def load_us_data_files(level='county', select_feat=None):
     # feat: dist, o, d
     if level == 'county':
-        feat = {'respop': 4, 'employedpop': 5, 'workpop': 6}
+        feat = {'respop': 4, 'workpop': 5}
     else:
         raise NotImplementedError
 
