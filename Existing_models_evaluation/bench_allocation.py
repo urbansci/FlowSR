@@ -28,7 +28,7 @@ elif dataset == 'US':
     flow, dist, iores, iowork, attr = load_us_data_files(level=level,
                 select_feat=['respop', 'workpop'])
 elif dataset == 'BTH':
-    flow, dist, iores, attr = load_bth_data_files(level=level, select_feat=['pop_wan'])
+    flow, dist, iores, attr = load_bth_data_files(level=level, select_feat=['pop'])
 else:
     raise NotImplementedError
 print(len(dist.keys()))
