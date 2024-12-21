@@ -83,7 +83,7 @@ def load_us_data_files(level='county', select_feat=None):
 
 def load_bth_data_files(level='county', select_feat=None):
     if level == 'county':
-        feat = {'area_km2': 8, 'pop_wan': 9, 'gdp_yi': 10}
+        feat = {'pop': 8}
     else:
         raise NotImplementedError
     flow_file = open(f"../Data/BTH/BTH_{level}_flow.pkl", 'rb')
