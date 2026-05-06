@@ -1,8 +1,9 @@
-# Distilling symbolic models from mobility data
+# Distilling Human Mobility Models With Symbolic Regression
 
 This repository contains the implementation and materials of the following paper:
->**Data driven discovery of human mobility models**   
-Hao Guo†, Weiyu Zhang†, Junjie Yang, Yuanqiao Hou, Lei Dong∗, Yu Liu∗
+>**Distilling Human Mobility Models With Symbolic Regression**   
+Hao Guo†, Weiyu Zhang†, Junjie Yang, Yuanqiao Hou, Lei Dong∗, Yu Liu∗  
+>[Geographical Analysis](https://doi.org/10.1111/gean.70043), 2026
 >  
 >**Abstract:** Human mobility is a fundamental aspect of social behavior, with broad applications in transportation, urban planning, and epidemic modeling. However, for decades new mathematical formulas to model mobility phenomena have been scarce and usually discovered by analogy to physical processes, such as the gravity model and the radiation model. These sporadic discoveries are often thought to rely on intuition and luck in fitting empirical data. Here, we propose a systematic approach that leverages symbolic regression to automatically discover interpretable models from human mobility data. Our approach finds several well-known formulas, such as the distance decay effect and classical gravity models, as well as previously unknown ones, such as an exponential-power-law decay that can be explained by the maximum entropy principle. By relaxing the constraints on the complexity of model expressions, we further show how key variables of human mobility are progressively incorporated into the model, making this framework a powerful tool for revealing the underlying mathematical structures of complex social phenomena directly from observational data.
 
